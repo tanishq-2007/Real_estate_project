@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover welcoming homes and find the right property for your next chapter.">
+  <meta name="theme-color" content="#f7f7f2">
+  <title>Haven Homes | Find a place to call home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" onclick="page('home');return false" aria-label="Haven Homes home">
+      <span class="brand-mark">HH</span>
+      <div><h1 class="brand-name">Haven Homes</h1><p class="brand-tagline">A place to feel at home</p></div>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav active" data-page="home">Home</button>
+      <button class="nav" data-page="properties">Find a home</button>
+      <button class="nav" data-page="add">List your property</button>
+      <button class="nav" data-page="enquiries">Enquiries</button>
+      <button class="nav" data-page="bookings">Reservations</button>
+    </nav>
+    <div class="header-right"><span id="status" class="service-status">Connecting</span></div>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">A better way to find home</p>
+          <h2>Your next chapter starts <em>here.</em></h2>
+          <p class="hero-description">Explore welcoming places, compare your favourites and let our friendly team help you find the right fit.</p>
+          <form id="heroSearch" class="hero-search">
+            <input id="heroSearchInput" type="search" placeholder="Try a city, area or home type" aria-label="Search homes">
+            <button class="button" type="submit">Find a home <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="hero-note"><span aria-hidden="true">✓</span> Thoughtfully selected homes, with real people here to help.</p>
+        </div>
+        <div class="hero-art" role="img" aria-label="Illustration of a welcoming home">
+          <div class="art-house"><div class="art-roof"></div><div class="art-window left"></div><div class="art-window right"></div><div class="art-door"></div></div>
+          <div class="art-card"><span>YOUR NEXT CHAPTER</span><strong>Find your happy place</strong></div>
+        </div>
+      </div>
+
+      <div class="quick-facts" aria-label="Property overview">
+        <div class="fact"><strong id="totalProperties">0</strong><span>homes to explore</span></div>
+        <div class="fact"><strong id="availableProperties">0</strong><span>ready for a new owner</span></div>
+        <div class="fact"><strong id="requestCount">0</strong><span>customer enquiries</span></div>
+        <div class="fact"><strong id="bookingCount">0</strong><span>reservations made</span></div>
+      </div>
+
+      <section aria-labelledby="featuredTitle">
+        <div class="section-heading">
+          <div><p class="eyebrow">A few places to begin</p><h2 id="featuredTitle">Homes worth a closer look</h2><p class="section-subtitle">A little inspiration for wherever life takes you next.</p></div>
+          <button class="button button-secondary" onclick="page('properties')">See all homes <span aria-hidden="true">→</span></button>
+        </div>
+        <div id="featuredGrid" class="property-grid"></div>
+      </section>
+
+      <section class="benefits" aria-label="How we help">
+        <article class="benefit"><span class="benefit-icon" aria-hidden="true">⌕</span><div><h3>Find your fit</h3><p>Browse homes by place, style or what matters most to you.</p></div></article>
+        <article class="benefit"><span class="benefit-icon" aria-hidden="true">♡</span><div><h3>Ask away</h3><p>Our team is happy to answer questions and arrange a visit.</p></div></article>
+        <article class="benefit"><span class="benefit-icon" aria-hidden="true">↗</span><div><h3>Move forward</h3><p>Get clear, friendly support as you take your next step.</p></div></article>
+      </section>
+    </section>
+
+    <section id="properties" class="page">
+      <div class="page-heading">
+        <div class="page-heading-copy"><p class="eyebrow">A place for every next chapter</p><h2>Find a home you'll love</h2><p class="section-subtitle">Search by city, area, home type or listing reference.</p></div>
+        <button class="button" onclick="page('add')">List your property</button>
+      </div>
+      <form id="propertySearchForm" class="search-panel">
+        <input id="listingSearch" type="search" placeholder="Where would you like to live?" aria-label="Search homes by city, area, or type">
+        <button class="button" type="submit">Search homes</button>
+        <button class="button button-soft" type="reset">Clear</button>
+      </form>
+      <div id="propertyGrid" class="property-grid"></div>
+    </section>
+
+    <section id="add" class="page">
+      <div class="page-heading">
+        <div class="page-heading-copy"><p class="eyebrow">For homeowners</p><h2>Share your property with us</h2><p class="section-subtitle">Tell us about your place and we'll help connect it with the right people.</p></div>
+      </div>
+      <form id="propertyForm" class="form-panel">
+        <p class="form-intro">Add a few details below. Your listing reference will be assigned automatically.</p>
+        <div class="form-grid">
+          <label class="field">Owner name<input name="owner" required placeholder="Your name"></label>
+          <label class="field">City or neighbourhood<input name="location" required placeholder="e.g. Bangalore"></label>
+          <label class="field">Home type<select name="type"><option>Apartment</option><option>Villa</option><option>Plot</option><option>House</option><option>Commercial</option></select></label>
+          <label class="field">Asking price (₹)<input name="price" type="number" min="0" required placeholder="e.g. 6500000"></label>
+          <label class="field">Area (sq.ft)<input name="area" type="number" min="0" required placeholder="e.g. 1200"></label>
+        </div>
+        <button class="button" type="submit">Add my property</button>
+      </form>
+    </section>
+
+    <section id="enquiries" class="page">
+      <div class="page-heading">
+        <div class="page-heading-copy"><p class="eyebrow">We're here to help</p><h2>Send us a message</h2><p class="section-subtitle">Ask about a home or tell us what you're looking for. Our team will be in touch.</p></div>
+      </div>
+      <form id="requestForm" class="form-panel">
+        <div class="form-grid">
+          <label class="field">Your name<input name="customer" required placeholder="Your name"></label>
+          <label class="field">Phone number<input name="phone" type="tel" placeholder="How can we reach you?"></label>
+          <label class="field">Listing reference<input name="propertyId" required placeholder="e.g. RE101"></label>
+          <label class="field">Your message<input name="message" required placeholder="I'd like to know more about this home"></label>
+        </div>
+        <button class="button" type="submit">Send my message</button>
+      </form>
+      <div class="section-heading"><div><p class="eyebrow">Messages received</p><h2>Recent enquiries</h2></div><button class="button button-secondary" onclick="reviewNextRequest()">Mark one as reviewed</button></div>
+      <div id="requestsTable" class="table-wrap"></div>
+    </section>
+
+    <section id="bookings" class="page">
+      <div class="page-heading">
+        <div class="page-heading-copy"><p class="eyebrow">Your next step</p><h2>Reservations</h2><p class="section-subtitle">See the homes reserved and the latest reservation details.</p></div>
+        <button class="button button-danger" onclick="cancelLatest()">Cancel most recent reservation</button>
+      </div>
+      <div class="message-banner">Need to change your plans? You can cancel the most recent reservation here.</div>
+      <div id="bookingsTable" class="table-wrap"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span><strong>Haven Homes</strong> · A place to feel at home</span><span>Questions? Send us a message and we'll be happy to help.</span></footer>
+
+  <dialog id="contactDialog" class="contact-dialog" aria-labelledby="contactTitle" aria-describedby="contactDescription">
+    <form id="contactForm" class="dialog-content">
+      <div class="dialog-heading">
+        <div><p id="contactEyebrow" class="eyebrow"></p><h2 id="contactTitle"></h2></div>
+        <button class="icon-button" type="button" onclick="closeContact()" aria-label="Close">×</button>
+      </div>
+      <p id="contactDescription" class="dialog-description"></p>
+      <input id="contactIntent" type="hidden">
+      <input id="contactPropertyId" type="hidden">
+      <div class="dialog-fields">
+        <label class="field">Your name<input id="contactName" autocomplete="name" required placeholder="Your name"></label>
+        <label class="field">Phone number<input id="contactPhone" type="tel" autocomplete="tel" placeholder="Your phone number"></label>
+        <label class="field">Message<textarea id="contactMessage" placeholder="How can we help?"></textarea></label>
+      </div>
+      <div class="dialog-actions"><button class="button button-secondary" type="button" onclick="closeContact()">Not now</button><button id="contactSubmit" class="button" type="submit">Send message</button></div>
+    </form>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
